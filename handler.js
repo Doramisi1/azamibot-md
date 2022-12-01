@@ -9,8 +9,8 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
 // Sticker WM
-global.packname = 'Azami x Byoru'
-global.author = 'Bot V5'
+global.packname = 'Azami X ega'
+global.author = 'pemburu cinta'
 
 //apikey
 global.api = 'apikeylu'		// https://api.lolhuman.xyz/docs apikeylu
@@ -58,7 +58,7 @@ export async function handler(chatUpdate) {
 				if (!isNumber(user.exp))
 					user.exp = 0
 				if (!isNumber(user.limit))
-					user.limit = 120
+					user.limit = 200
 				if (!isNumber(user.lastclaim))
 					user.lastclaim = 0
 				if (!('registered' in user))
@@ -93,7 +93,7 @@ export async function handler(chatUpdate) {
 					user.autolevelup = true
 
 				if (!isNumber(user.money))
-					user.money = 0
+					user.money = 10000
 				if (!isNumber(user.atm))
 					user.atm = 0
 				if (!isNumber(user.health))
@@ -458,7 +458,7 @@ export async function handler(chatUpdate) {
 			} else
 				global.db.data.users[m.sender] = {
 					exp: 0,
-					limit: 120,
+					limit: 200,
 					lastclaim: 0,
 					registered: false,
 					name: m.name,
@@ -475,7 +475,7 @@ export async function handler(chatUpdate) {
 					role: 'Beginner',
 					autolevelup: true,
 
-					money: 0,
+					money: 10000,
 					atm: 0,
 					health: 100,
 					potion: 10,
@@ -673,9 +673,9 @@ export async function handler(chatUpdate) {
 				if (!('permaBan' in chat))
 					chat.permaBan = false
 				if (!('welcome' in chat))
-					chat.welcome = false
+					chat.welcome = true
 				if (!('detect' in chat))
-					chat.detect = false
+					chat.detect =true
 				if (!('sWelcome' in chat))
 					chat.sWelcome = ''
 				if (!('sBye' in chat))
@@ -718,8 +718,8 @@ export async function handler(chatUpdate) {
 				global.db.data.chats[m.chat] = {
 					isBanned: false,
 					permaBan: false,
-					welcome: false,
-					detect: false,
+					welcome: true,
+					detect: true,
 					sWelcome: '',
 					sBye: '',
 					sPromote: '',
@@ -744,11 +744,11 @@ export async function handler(chatUpdate) {
 			if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
 			if (settings) {
 				if (!('self' in settings)) settings.self = false
-				if (!('autoread' in settings)) settings.autoread = false
+				if (!('autoread' in settings)) settings.autoread = true
 				if (!('restrict' in settings)) settings.restrict = false
 			} else global.db.data.settings[this.user.jid] = {
 				self: false,
-				autoread: false,
+				autoread: true,
 				restrict: false
 			}
 			let store = global.db.data.store
